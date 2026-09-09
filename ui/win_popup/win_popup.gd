@@ -1,6 +1,8 @@
 extends Panel
 class_name WinPopup
 
+func _on_finish_flag_end_game() -> void:
+	show()
 
 func _on_button_pressed() -> void:
 	##Reloads the current scene

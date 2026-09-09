@@ -5,6 +5,7 @@
 [ext_resource type="TileSet" uid="uid://by1ffmkw84wqk" path="res://world/rooms/tiles/tileset.tres" id="4_mlew4"]
 [ext_resource type="PackedScene" uid="uid://bxlf6s7veaql" path="res://world/objects/button/door_button.tscn" id="5_mlew4"]
 [ext_resource type="PackedScene" uid="uid://fn0h2kvqqbm3" path="res://ui/win_popup/win_popup.tscn" id="6_773jj"]
+[ext_resource type="PackedScene" uid="uid://4hhfv3u0qei7" path="res://world/objects/finish_flag/finish_flag.tscn" id="6_y163h"]
 
 [sub_resource type="Gradient" id="Gradient_mlew4"]
 offsets = PackedFloat32Array(1)
@@ -42,3 +43,8 @@ tile_set = ExtResource("4_mlew4")
 
 [node name="DoorButton" parent="." unique_id=2105154238 instance=ExtResource("5_mlew4")]
 position = Vector2(112, 576)
+
+[node name="FinishFlag" parent="." unique_id=22081228 instance=ExtResource("6_y163h")]
+position = Vector2(1064, 544)
+
+[connection signal="end_game" from="FinishFlag" to="CanvasLayer/WinPopup" method="_on_finish_flag_end_game"]
