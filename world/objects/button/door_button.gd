@@ -2,8 +2,8 @@ extends Area2D
 class_name DoorButton
 
 ##The button doesn't know who is interested in it when it gets pressed/released
-signal pressed
-signal released
+signal open
+signal close
 
 ##bool to stop a key from being collected twice
 var is_pressed : bool = false
@@ -21,7 +21,7 @@ func _on_body_entered(body: Node2D) -> void:
 	
 	button_top.position.y = 3
 	is_pressed = true
-	pressed.emit()
+	open.emit()
 
 
 
@@ -35,4 +35,4 @@ func _on_body_exited(body: Node2D) -> void:
 	##Current behavior is the button STAYS pressed after getting off the button
 	#button_top.position.y = 0
 	#is_pressed = false
-	#released.emit()
+	#close.emit()

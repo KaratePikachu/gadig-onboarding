@@ -7,6 +7,10 @@ class_name Player
 ##The amount of velocity applied to the player when they jump
 @export var jump_velocity = 550.0
 
+##The direction the player is facing. Used for the shoot function
+var facing_dir : Vector2
+
+@onready var gun_component : GunComponent
 ##Called once when the node is first created.
 ##Player does not need to run any code when first created, so this can be left empty or deleted.
 func _ready() -> void:
@@ -30,12 +34,14 @@ func _process(delta: float) -> void:
 	var direction := Input.get_axis("move_left", "move_right")
 	
 	if direction:
+		facing_dir = Vector2(direction,0).normalized()
 		##Acceleration
 		##No need to multiply by delta since physics_process regulates the number of calls per second
 		velocity.x = direction * speed
 	else:
 		##Decceleration
 		velocity.x = move_toward(velocity.x, 0, speed)
+
 
 ##Called once every 1/60th of a second. 
 func _physics_process(delta: float) -> void:
