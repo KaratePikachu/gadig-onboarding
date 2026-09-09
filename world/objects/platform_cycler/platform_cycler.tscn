@@ -1,0 +1,17 @@
+[gd_scene format=3 uid="uid://byfwi3elp3v1r"]
+
+[ext_resource type="Script" uid="uid://b1vvhfl343i7q" path="res://world/objects/platform_cycler/platform_cycler.gd" id="1_6ltts"]
+[ext_resource type="PackedScene" uid="uid://dkw18spbsmq3v" path="res://world/objects/moving_platform/moving_platform.tscn" id="2_g7ypp"]
+
+[node name="PlatformCycler" type="Area2D" unique_id=19608188]
+script = ExtResource("1_6ltts")
+moving_platform_packed = ExtResource("2_g7ypp")
+
+[node name="AllowedRegion" type="CollisionShape2D" parent="." unique_id=979337415]
+
+[node name="Spawnpoint" type="Node2D" parent="." unique_id=1589853399]
+
+[node name="PlatformSpawnTimer" type="Timer" parent="." unique_id=996430929]
+
+[connection signal="body_exited" from="." to="." method="_on_body_exited"]
+[connection signal="timeout" from="PlatformSpawnTimer" to="." method="_on_platform_spawn_timer_timeout"]

@@ -1,0 +1,21 @@
+[gd_scene format=3 uid="uid://dkw18spbsmq3v"]
+
+[ext_resource type="Script" uid="uid://ccv2jvw5cfg7v" path="res://world/objects/moving_platform/moving_platform.gd" id="1_4itxq"]
+[ext_resource type="Texture2D" uid="uid://deow3araxsxma" path="res://world/objects/moving_platform/log.png" id="2_adylu"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_lfnpa"]
+size = Vector2(80, 20)
+
+[node name="MovingPlatform" type="AnimatableBody2D" unique_id=551861834]
+sync_to_physics = false
+script = ExtResource("1_4itxq")
+speed = 50.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=112625132]
+shape = SubResource("RectangleShape2D_lfnpa")
+one_way_collision = true
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=377838646]
+position = Vector2(0, -3.9999998)
+scale = Vector2(0.625, 0.625)
+texture = ExtResource("2_adylu")

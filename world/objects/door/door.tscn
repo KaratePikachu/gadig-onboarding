@@ -1,0 +1,18 @@
+[gd_scene format=3 uid="uid://biqjrmexug355"]
+
+[ext_resource type="Script" uid="uid://3ggbhm1b76yq" path="res://world/objects/door/door.gd" id="1_drotm"]
+[ext_resource type="Texture2D" uid="uid://crjehfpil8h0v" path="res://world/objects/door/portcullis.png" id="2_xeojn"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5ycb2"]
+size = Vector2(20, 96)
+
+[node name="Door" type="StaticBody2D" unique_id=2059761332]
+script = ExtResource("1_drotm")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1731328753]
+shape = SubResource("RectangleShape2D_5ycb2")
+
+[node name="Portcullis" type="Sprite2D" parent="." unique_id=877245892]
+texture_filter = 3
+scale = Vector2(2, 2)
+texture = ExtResource("2_xeojn")

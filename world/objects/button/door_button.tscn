@@ -1,0 +1,32 @@
+[gd_scene format=3 uid="uid://bxlf6s7veaql"]
+
+[ext_resource type="Script" uid="uid://ckl2q7v7jomvs" path="res://world/objects/button/door_button.gd" id="1_v36cw"]
+[ext_resource type="Texture2D" uid="uid://coydvk26g40ou" path="res://world/objects/button/button_top.png" id="2_ngnkb"]
+[ext_resource type="Texture2D" uid="uid://c6qogcod5diiv" path="res://world/objects/button/button_base.png" id="3_w5y32"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_mvnth"]
+radius = 16.0
+
+[node name="DoorButton" type="Area2D" unique_id=2105154238]
+collision_layer = 4
+collision_mask = 2
+script = ExtResource("1_v36cw")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=165504492]
+position = Vector2(0, -13)
+shape = SubResource("CircleShape2D_mvnth")
+
+[node name="Sprites" type="Node2D" parent="." unique_id=388645215]
+position = Vector2(0, -13)
+
+[node name="ButtonTop" type="Sprite2D" parent="Sprites" unique_id=385955517]
+texture_filter = 3
+scale = Vector2(2, 2)
+texture = ExtResource("2_ngnkb")
+
+[node name="ButtonBottom" type="Sprite2D" parent="Sprites" unique_id=1140120071]
+scale = Vector2(2, 2)
+texture = ExtResource("3_w5y32")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="body_exited" from="." to="." method="_on_body_exited"]
